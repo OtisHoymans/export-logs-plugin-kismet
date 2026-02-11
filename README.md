@@ -48,7 +48,7 @@ The script automatically:
 3. Click "Export logs" button in the bottom navigation bar.
 4. Wait for confirmation message.
 5. Access logs at: `C:\Users\kismet\KismetLogs`.
-![](img/KismetLogsFolder)
+![](img/KismetLogsFolder.png)
 
 View logs with SQLite tools like DB Browser.
 
