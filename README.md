@@ -14,11 +14,12 @@ Automates exporting Kismet logs from Linux to Windows over the network using a F
 
 ### Linux (Run First)
 ```bash
-chmod +x setup_linux.sh
-./setup_linux.sh
+chmod +x export_plugin_setup.sh
+./export_plugin_setup.sh
 ```
 After running, change the variables (hostname, ip, ...) to the details of your Windows machine in ~/Kismet/custom_plugin/export_logs.sh.
 
 ### Windows
+**Note:** Make sure your device is connected to the Raspberry Pi (e.g. Hotspot or Ethernet)
 1. Open PowerShell as Administrator.
 2. Execute the script (./ExportPluginSetup_kismet.ps1).
