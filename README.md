@@ -3,6 +3,9 @@
 
 A custom plugin that adds one-click log export functionality to Kismet's web interface, automatically transferring log files from a Raspberry Pi to a connected Windows machine.
 
+![](img/ExportingLogs.png)
+![](img/LogsExportFinished.png)
+
 ## Features
 
 - Adds "Export logs" button to Kismet web interface.
@@ -45,6 +48,7 @@ The script automatically:
 3. Click "Export logs" button in the bottom navigation bar.
 4. Wait for confirmation message.
 5. Access logs at: `C:\Users\kismet\KismetLogs`.
+![](img/KismetLogsFolder)
 
 View logs with SQLite tools like DB Browser.
 
