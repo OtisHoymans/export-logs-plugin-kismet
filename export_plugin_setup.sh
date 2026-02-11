@@ -140,7 +140,7 @@ cat << 'EOF' > /usr/share/kismet/httpd/js/kismet.ui.export.js
                     var statusDiv = $('<div>').attr('id','export-status').css('margin-top','10px');
                     var btn = $('<button>')
                         .addClass('btn btn-primary')
-                        .text('Export Logs to my device')
+                        .text('Export Logs')
                         .on('click', function() {
                             btn.prop('disabled', true).text('Starting...');
                             var host = window.location.hostname;
@@ -155,7 +155,7 @@ cat << 'EOF' > /usr/share/kismet/httpd/js/kismet.ui.export.js
                                     console.log('Export started:', response);
                                     if (response && response.pid) {
                                         statusDiv.html('Exporting (pid ' + response.pid + ')...');
-                                        btn.text('Exporting...');
+                                        btn.text('Exporting logs...');
 
                                         // Poll until done
                                         var pollExport = function() {
@@ -172,26 +172,26 @@ cat << 'EOF' > /usr/share/kismet/httpd/js/kismet.ui.export.js
                                                         // Done!
                                                         console.log('Export finished!');
                                                         statusDiv.html('<div style="color:lightgreen;font-weight:bold;">✓ Export finished!</div>');
-                                                        btn.prop('disabled', false).text('Export Logs to Laptop');
+                                                        btn.prop('disabled', false).text('Export Logs');
                                                     }
                                                 },
                                                 error: function(xhr, status, error) {
                                                     console.log('Status check error:', status, error, xhr);
                                                     statusDiv.html('<div style="color:red;">Status check failed: ' + error + '</div>');
-                                                    btn.prop('disabled', false).text('Export Logs to Laptop');
+                                                    btn.prop('disabled', false).text('Export Logs');
                                                 }
                                             });
                                         };
                                         pollExport();
                                     } else {
                                         alert('Failed to start export');
-                                        btn.prop('disabled', false).text('Export Logs to Laptop');
+                                        btn.prop('disabled', false).text('Export Logs');
                                     }
                                 },
                                 error: function(xhr, status, error) {
                                     console.log('Export request error:', status, error);
                                     alert('Export request failed: ' + (error||status) + '\nMake sure the API is running on port 5000');
-                                    btn.prop('disabled', false).text('Export Logs to Laptop');
+                                    btn.prop('disabled', false).text('Export Logs');
                                 }
                             });
                         });
@@ -199,7 +199,7 @@ cat << 'EOF' > /usr/share/kismet/httpd/js/kismet.ui.export.js
                     div.append(
                         $('<div>').css('padding','20px')
                             .append($('<h3>').text('Export Kismet Logs'))
-                            .append($('<p>').css({'color':'#666','font-size':'14px','margin-top':'8px'}).text('Click the button below to export all Kismet log files to your laptop over the network. The export runs in the background and you will be notified when complete.'))
+                            .append($('<p>').css({'color':'#666','font-size':'14px','margin-top':'8px'}).text('Click the button below to export all recorded Kismet log files to your device  over the network. The export runs in the background and you will be notified when complete.'))
                             .append(btn)
                             .append(statusDiv)
                     );
@@ -207,6 +207,7 @@ cat << 'EOF' > /usr/share/kismet/httpd/js/kismet.ui.export.js
             });
         }
     }, 100);
+})(jQuery);
 EOF
 
 
