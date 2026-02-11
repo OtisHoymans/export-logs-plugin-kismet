@@ -21,6 +21,7 @@ if (-not (Test-Path $dir)) {
     Write-Host "- Folder bestaat al"
 }
 
+# Correcte NTFS permissies geven aan de kismet gebruiker zodat Secure Copy (SCP) mogelijk is. 
 Write-Host "NTFS permissies zetten voor '$username'"
 $acl = Get-Acl $dir
 $ar = New-Object System.Security.AccessControl.FileSystemAccessRule($username, "Modify", "ContainerInherit,ObjectInherit", "None", "Allow")
